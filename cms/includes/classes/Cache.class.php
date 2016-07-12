@@ -63,7 +63,7 @@ exit;
 else
 {
 ';
-    if(function_exists('xgzencode')) $cacheContent .= 'if(isset($_SERVER[\'HTTP_ACCEPT_ENCODING\']) && strpos($_SERVER[\'HTTP_ACCEPT_ENCODING\'], \'gzip\')!==false)
+    if(function_exists('gzencode')) $cacheContent .= 'if(isset($_SERVER[\'HTTP_ACCEPT_ENCODING\']) && strpos($_SERVER[\'HTTP_ACCEPT_ENCODING\'], \'gzip\')!==false)
 {
 header(\'Content-Encoding: gzip\');
 header(\'Content-Type: '.$content_type.'; charset='.$charset.'\'); ?'.'>'.gzencode($content, 9).'<?php
