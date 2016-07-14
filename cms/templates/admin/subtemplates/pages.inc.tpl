@@ -11,7 +11,7 @@
 </div>
 
 <?php if (isset($pages)): ?>
-    <div class="table-responsive">
+    <div class="table-responsive" style="word-break: break-all;">
         <table class="table table-striped table-hover">
             <thead>
             <tr>
