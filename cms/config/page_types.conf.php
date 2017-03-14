@@ -4,6 +4,12 @@ $page_types['default'] = array(
 'requires_parameter' => false
 );
 
+$page_types['documents'] = array(
+'page_type' => 'documents.php',
+'page_type_label' => 'page_type_documents',
+'requires_parameter' => false
+);
+
 $page_types['commentable_page'] = array(
 'page_type' => 'commentable_page.php',
 'page_type_label' => 'page_type_commentable',

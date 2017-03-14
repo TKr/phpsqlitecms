@@ -108,6 +108,7 @@ $lang['edit_gcb_marking'] =              'Global content blocks:';
 $lang['edit_include_news'] =             'Include news:';
 $lang['edit_template_marking'] =         'Template:';
 $lang['page_type_default'] =             'Normal page';
+$lang['page_type_documents'] =           'Documents page';
 $lang['page_type_commentable'] =         'Commentable page';
 $lang['page_type_overview'] =            'Overview page';
 $lang['page_type_news'] =                'News page';

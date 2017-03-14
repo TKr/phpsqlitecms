@@ -113,6 +113,7 @@ $lang['edit_gcb_marking'] =              'Bloki globalnych treści:';
 $lang['edit_include_news'] =             'Dodaj newsa:';
 $lang['edit_template_marking'] =         'Skórka:';
 $lang['page_type_default'] =             'Normalna strona';
+$lang['page_type_documents'] =           'Dokumenty';
 $lang['page_type_commentable'] =         'Strona z możliwością komentowania';
 $lang['page_type_overview'] =            'Podglądowa strona (Overview)';
 $lang['page_type_news'] =                'Strona nowości';
