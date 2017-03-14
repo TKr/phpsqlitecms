@@ -108,10 +108,10 @@
 <?php if (isset($contains_thumbnails)): ?>
 <script async src="<?php echo STATIC_URL; ?>js/mylightbox.js" type="text/javascript"></script>
 <?php endif; ?>
-<?php if ($settings['recaptcha_entry_check'] || $settings['recaptcha_mail_check']): ?>
+<?php if ((isset($settings['recaptcha_entry_check']) && $settings['recaptcha_entry_check']) ||( isset($settings['recaptcha_mail_check']) && $settings['recaptcha_mail_check'])): ?>
 <script async src='<?php echo RECAPTCHA_SCRIPT; ?>'></script>
 <?php endif; ?>
-<?php if ($settings['google_analytics_check']): ?>
+<?php if (isset($settings['google_analytics_check']) && $settings['google_analytics_check']): ?>
 <script>
   (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
   (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
