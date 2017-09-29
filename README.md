@@ -30,3 +30,4 @@ phpSQLiteCMS example sites
 * <a href="http://praxis-kunstleben.de/">Praxis Kunstleben</a> - psychologische Praxis (Einzeltherapie, Paartherapie, Coaching, Familienberatung, Supervision) in Freiburg
 * <a href="http://www.elbi-bs.com/">ELBI</a> - manufacturing of individual furniture and more in Burgas, Bulgaria
 * <a href="http://phpsqlitecms.cu.cc/">phpSQLiteCMS Spanish</a> - Spanish phpSQLiteCMS demo and documentation site / página de documentación y demonstración española
+* <a href="http://www.pson.org.pl/">PSON</a> - Polish Association Of Disabled People
