@@ -324,22 +324,22 @@
             </select>
         </div>
     </div>
-    
+
     <?php if(isset($simple_news_pages)): ?>
-	<div class="form-group">
-		<label for="include_news" class="col-lg-2 control-label"><?php echo $lang['edit_include_news']; ?></label>
-		
-		<div class="col-lg-10">
-			<select id="include_news" name="include_news" size="1" class="form-control form-control-default">
-				<option value=""<?php if(empty($page_data['include_news'])): ?> selected="selected"<?php endif; ?>></option>
-				<?php foreach($simple_news_pages as $simple_news_page): ?>
-				<option value="<?php echo $simple_news_page['id']; ?>"<?php if(isset($page_data['include_news']) && $page_data['include_news']==$simple_news_page['id']): ?> selected="selected"<?php endif; ?>><?php echo $simple_news_page['page']; ?></option>
-				<?php endforeach; ?>
-			</select>
-		</div>
-	</div>
-	<?php endif; ?>
-    
+    <div class="form-group">
+        <label for="include_news" class="col-lg-2 control-label"><?php echo $lang['edit_include_news']; ?></label>
+
+        <div class="col-lg-10">
+            <select id="include_news" name="include_news" size="1" class="form-control form-control-default">
+                <option value=""<?php if(empty($page_data['include_news'])): ?> selected="selected"<?php endif; ?>></option>
+                <?php foreach($simple_news_pages as $simple_news_page): ?>
+                <option value="<?php echo $simple_news_page['id']; ?>"<?php if(isset($page_data['include_news']) && $page_data['include_news']==$simple_news_page['id']): ?> selected="selected"<?php endif; ?>><?php echo $simple_news_page['page']; ?></option>
+                <?php endforeach; ?>
+            </select>
+        </div>
+    </div>
+    <?php endif; ?>
+
     <div class="form-group">
         <label for="template" class="col-lg-2 control-label"><?php echo $lang['edit_template_marking']; ?></label>
 
@@ -383,7 +383,7 @@
         <label for="tv" class="col-lg-2 control-label"><?php echo $lang['template_variables']; ?></label>
 
         <div class="col-lg-10">
-            <input type="text" id="tv" name="tv" value="<?php if (isset($page_data['tv'])) echo $page_data['tv']; ?>"
+            <input type="text" id="tv" name="tv" value="<?php if (isset($page_data['tv'])) { echo $page_data['tv']; } elseif(!isset($page_data['id'])) { echo 'nocolumns'; } ?>"
                    placeholder="<?php echo $lang['values_comma_separated']; ?>"
                    class="form-control form-control-default" size="40"/>
         </div>
@@ -446,6 +446,8 @@
                             value="<?php echo $include_page['id']; ?>"<?php if (isset($page_data['include_page']) && $page_data['include_page'] == $include_page['id']): ?> selected="selected"<?php endif; ?>><?php echo $include_page['page']; ?></option>
                     <?php endif; endforeach; ?>
                 </select>
+
+            <?php if (isset($page_data['id'])): ?>
                 <select name="include_rss" size="1" class="form-control form-control-inline form-control-medium">
                     <option
                         value=""<?php if (empty($page_data['include_rss'])): ?> selected="selected"<?php endif; ?>><?php echo $lang['edit_include_rss_marking']; ?></option>
@@ -462,6 +464,25 @@
                             value="<?php echo $include_sitemap['id']; ?>"<?php if (isset($page_data['include_sitemap']) && $page_data['include_sitemap'] == $include_sitemap['id']): ?> selected="selected"<?php endif; ?>><?php echo $include_sitemap['page']; ?></option>
                     <?php endif; endforeach; ?>
                 </select>
+            <?php else: ?>
+                <select name="include_rss" size="1" class="form-control form-control-inline form-control-medium">
+                    <option
+                        value=""><?php echo $lang['edit_include_rss_marking']; ?></option>
+                    <?php $included_rss_default = false; foreach ($pages as $include_rss): if ($include_rss['type'] == 'rss'): ?>
+                        <option
+                            value="<?php echo $include_rss['id']; ?>"<?php if (!$included_rss): $included_rss = true; ?> selected="selected"<?php endif; ?>><?php echo $include_rss['page']; ?></option>
+                    <?php endif; endforeach; ?>
+                </select>
+                <select name="include_sitemap" size="1" class="form-control form-control-inline form-control-medium">
+                    <option
+                        value=""><?php echo $lang['edit_include_sitemap_marking']; ?></option>
+                    <?php $included_sitemap_default = false; foreach ($pages as $include_sitemap): if ($include_sitemap['type'] == 'sitemap'): ?>
+                        <option
+                            value="<?php echo $include_sitemap['id']; ?>"<?php if (!$included_sitemap_default): $included_sitemap_default = true; ?> selected="selected"<?php endif; ?>><?php echo $include_sitemap['page']; ?></option>
+                    <?php endif; endforeach; ?>
+                </select>
+            <?php endif; ?>
+
             </div>
         </div>
 
